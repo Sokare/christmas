@@ -13,7 +13,7 @@
 		String family = request.getParameter("FamilyName");
    		String contextPath=request.getContextPath();
 
-		java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/christmas", "adminNiJqTgE", "bw2e2UQJmQhI");
+		java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://christmas-ewishlist.rhcloud.com/phpmyadmin/christmas", "adminNiJqTgE", "bw2e2UQJmQhI");
 	      Statement stmt = conn.createStatement();
 	      String loginName= request.getParameter("UserID");
 		String loginPassword =  request.getParameter("Password");

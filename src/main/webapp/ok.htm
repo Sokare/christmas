@@ -1,0 +1,62 @@
+<%@ LANGUAGE="VBSCRIPT" %>
+<%
+if Session("UserID") = "" then
+   Response.Redirect "sorry.htm"
+end if
+
+FamilyName = Session("FamilyName")
+UserID = Session("UserID")
+%>
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>You have successfully logged in.</title>
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="none, default">
+</head>
+
+<body background="images/sidebar.gif">
+
+<p align="center"><img border="0" src="images/merry.gif" width="394" height="198"></p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+<p align="center"><img border="0" src="images/divider.gif" width="427" height="37"></p>
+<p align="center"><b><font face="Bookman Old Style" color="#006600" size="6">Welcome!</font></b></p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<H1 align="center"> <font color="#800000" size="4"> You are now logged ON.</font> </H1>
+<p align="center"><applet code="fphover.class" codebase="./" width="186" height="24">
+  <param name="color" value="#006600">
+  <param name="hovercolor" value="#800000">
+  <param name="effect" value="glow">
+  <param name="fontsize" value="14">
+  <param name="font" value="Helvetica">
+  <param name="fontstyle" value="regular">
+  <param name="textcolor" value="#D9CF1C">
+  <param name="url" valuetype="ref" value="ChristmasList.asp">
+  <param name="text" value="Family Christmas List">
+</applet>&nbsp;&nbsp; &nbsp; <applet code="fphover.class" codebase="./" width="185" height="24">
+  <param name="color" value="#006600">
+  <param name="hovercolor" value="#800000">
+  <param name="effect" value="glow">
+  <param name="fontsize" value="14">
+  <param name="font" value="Helvetica">
+  <param name="fontstyle" value="regular">
+  <param name="textcolor" value="#D9CF1C">
+  <param name="url" valuetype="ref" value="MyChristmasList.asp">
+  <param name="text" value="My Christmas List">
+</applet>
+</p>
+<p align="center"><img border="0" src="images/divider.gif" width="427" height="37"></p>
+<p align="center">&nbsp; <img border="0" src="images/bullet2.gif" width="25" height="31"><b><a href="logout.asp"><font color="#800000" face="Bookman Old Style" size="4">Logout</font></a></b></p>
+<p align="center">&nbsp;</p>
+</body>
+
+</html>

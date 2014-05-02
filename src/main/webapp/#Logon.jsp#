@@ -1,0 +1,32 @@
+<%@ LANGUAGE="VBSCRIPT" %>
+<%
+
+Family = Request.Form("FamilyName")
+
+
+
+  if Session("UserID") = "" or Request.Form("UserID") <> "" then 
+   Session("UserID") = ""
+   
+String strSQL = "SELECT UserID, Password FROM tblUsers WHERE UserID = '" & Request.Form("UserID") &_
+            "' AND Password = '" & Request.Form("Password") & "'"  
+   set oRSu = oCONv.Execute (strSQL)
+                                    
+   if (not oRSu.EOF) and (not oRSu.BOF) then
+       Response.Cookies("Username") = oRSu.Fields("UserID")
+       Session("UserID") = oRSu ("UserID")
+       Session("FamilyName") = Family
+       Response.Redirect "ok.htm"   
+   else
+       Response.Redirect "sorry.htm"
+   end if
+end if
+
+'close the recordset
+oRSu.close
+set oRSu = nothing
+
+'close the connection
+oCONv.close
+set oCONv = nothing
+%>

@@ -12,12 +12,13 @@
 	      Class.forName("com.mysql.jdbc.Driver").newInstance();
 		String family = request.getParameter("FamilyName");
    		String contextPath=request.getContextPath();
+   		
    		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
    		String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
    		String url = String.format("jdbc:mysql://%s:%s/christmas", host, port);
-   		
 		java.sql.Connection conn = DriverManager.getConnection(url, "adminNiJqTgE", "bw2e2UQJmQhI");
-	      Statement stmt = conn.createStatement();
+	  
+		Statement stmt = conn.createStatement();
 	      String loginName= request.getParameter("UserID");
 		String loginPassword =  request.getParameter("Password");
 		String sqlString = "SELECT * FROM auth WHERE Name = '" + loginName + "' AND Password = '" + loginPassword  + "'";

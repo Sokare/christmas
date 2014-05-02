@@ -16,8 +16,11 @@
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			String contextPath=request.getContextPath();
 
-			java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/christmas", "adminNiJqTgE", "bw2e2UQJmQhI");
-			Statement stmt = conn.createStatement();
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+	   		String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+	   		String url = String.format("jdbc:mysql://%s:%s/christmas", host, port);
+			java.sql.Connection conn = DriverManager.getConnection(url, "adminNiJqTgE", "bw2e2UQJmQhI");
+		  	Statement stmt = conn.createStatement();
 
 			String itemString = "A lump of coal.";
 			String commentString = "I've been naughty.";

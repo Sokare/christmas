@@ -60,7 +60,13 @@ public String getCommentString(String inputString)
 		
 	}*/
 	String outputString = "";
-	int starturlIndex = inputString.indexOf("http://");
+    String protocol = "http://";
+	int starturlIndex = inputString.indexOf(protocol);
+    if (starturlIndex == -1)
+    {
+        protocol = "https://";
+        starturlIndex = inputString.indexOf(protocol);
+    }
 	if (starturlIndex != -1)
 	{
 		if (starturlIndex >= 1)
@@ -74,7 +80,7 @@ public String getCommentString(String inputString)
 			String toReplace = inputString.substring(starturlIndex, endurlIndex);
 
 			outputString += "<a href=\""+toReplace+"\" target=\"_blank\">See Item</a>";
-			starturlIndex = inputString.indexOf("http://", endurlIndex);
+			starturlIndex = inputString.indexOf(protocol, endurlIndex);
 			if (starturlIndex > endurlIndex)
 				outputString += inputString.substring(endurlIndex, starturlIndex);	
 		}
